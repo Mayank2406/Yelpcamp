@@ -35,7 +35,13 @@ router.post("/",middleware.isLoggedIn,function(req,res){
         }
         else{
             // Redirect Back To Campgrounds Page.
-            res.redirect("/campgrounds");
+            try{
+                res.redirect("/campgrounds");
+            }
+            catch(e){
+                res.send({"status":false, msg : "error occurred"}
+            }
+                 
         }
     });
 })
